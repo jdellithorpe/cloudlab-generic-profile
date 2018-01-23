@@ -48,12 +48,12 @@ pc.defineParameter("num_nodes", "Nodes",
 
 # Size of partition to allocate for local disk storage.
 pc.defineParameter("local_storage_size", "Size of Node Local Storage Partition",
-        portal.ParameterType.INTEGER, 1, [],
+        portal.ParameterType.STRING, "200GB", [],
         "Size of local disk partition to allocate for node-local storage.")
 
 # Size of partition to allocate for NFS shared home directories.
 pc.defineParameter("nfs_storage_size", "Size of NFS Shared Storage",
-        portal.ParameterType.INTEGER, 1, [],
+        portal.ParameterType.STRING, "200GB", [],
         "Size of disk partition to allocate on NFS server for hosting " +\
         "users' home directories.")
 
