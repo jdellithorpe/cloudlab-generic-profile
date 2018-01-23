@@ -58,7 +58,7 @@ pc.defineParameter("nfs_storage_size", "Size of NFS Shared Storage",
         "users' home directories.")
 
 # Datasets to connect to the cluster (shared via NFS).
-pc.defineparameter("dataset_urns", "datasets", 
+pc.defineParameter("dataset_urns", "datasets", 
         portal.ParameterType.STRING, "", None,
         "Space separated list of datasets to mount. All datasets are " +\
         "first mounted on the NFS server at /remote, and then mounted via " +\
