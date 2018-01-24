@@ -18,9 +18,9 @@ NFS_SHARED_HOME_EXPORT_DIR=$1
 # NFS to be shared by all nodes in the cluster.
 NFS_DATASETS_EXPORT_DIR=$2
 # Account in which various software should be setup.
-USERNAME=$4
+USERNAME=$3
 # Number of nodes in the cluster.
-NUM_NODES=$6
+NUM_NODES=$4
 
 # === Paarameters decided by this script. ===
 # Directory where the NFS partition will be mounted on NFS clients
