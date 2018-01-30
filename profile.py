@@ -8,7 +8,6 @@ the startup scripts.
 Instructions:
 Input parameters and instantiate. Bada-bing-bada-boom!
 """
-
 import re
 
 import geni.aggregate.cloudlab as cloudlab
