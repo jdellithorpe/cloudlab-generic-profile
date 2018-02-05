@@ -93,6 +93,7 @@ then
   > /local/setup-nfs-done
 fi
 
+echo -e "\n===== WAITING FOR NFS SERVER TO COMPLETE SETUP ====="
 # Wait until nfs is properly set up. 
 while [ "$(ssh nfs "[ -f /local/setup-nfs-done ] && echo 1 || echo 0")" != "1" ]; do
   sleep 1
