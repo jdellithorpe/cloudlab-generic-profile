@@ -116,6 +116,9 @@ for host in hostnames:
     node.hardware_type = params.hardware_type
     node.disk_image = urn.Image(cloudlab.Utah, "emulab-ops:%s" % params.image)
 
+    # Install a private/public key on this node
+    node.installRootKeys(True, True)
+
     node.addService(pg.Execute(shell="sh", 
         command="sudo /local/repository/system-setup.sh %s %s %s %s" % \
         (nfs_shared_home_export_dir, nfs_datasets_export_dir, 
