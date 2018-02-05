@@ -10,7 +10,6 @@ Input parameters, instantiate, and wait for setup to complete before logging in
 (otherwise setting up shared home directories on NFS might fail).
 Bada-bing-bada-boom!
 """
-
 import re
 
 import geni.aggregate.cloudlab as cloudlab

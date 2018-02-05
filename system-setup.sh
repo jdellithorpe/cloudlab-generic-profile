@@ -60,10 +60,13 @@ then
   chmod 777 $NFS_SHARED_HOME_EXPORT_DIR
 
   # The datasets directory only exists if the user is mounting remote datasets.
-  if [ -e "$NFS_DATASETS_EXPORT_DIR" ]
+  # Otherwise we'll just create an empty directory.
+  if [ ! -e "$NFS_DATASETS_EXPORT_DIR" ]
   then
-    chmod 777 $NFS_DATASETS_EXPORT_DIR
+    mkdir $NFS_DATASETS_EXPORT_DIR
   fi
+
+  chmod 777 $NFS_DATASETS_EXPORT_DIR
 
   # Remote the lost+found folder in the shared home directory
   rm -rf $NFS_SHARED_HOME_EXPORT_DIR/*
@@ -72,14 +75,12 @@ then
   # the system (/etc/exports is the access control list for NFS exported file
   # systems, see exports(5) for more information).
   echo "$NFS_SHARED_HOME_EXPORT_DIR *(rw,sync,no_root_squash)" >> /etc/exports
-  if [ -e "$NFS_DATASETS_EXPORT_DIR" ]
-  then
-    echo "$NFS_DATASETS_EXPORT_DIR *(rw,sync,no_root_squash)" >> /etc/exports
-    for dataset in $(ls $NFS_DATASETS_EXPORT_DIR)
-    do
-      echo "$NFS_DATASETS_EXPORT_DIR/$dataset *(rw,sync,no_root_squash)" >> /etc/exports
-    done
-  fi
+  echo "$NFS_DATASETS_EXPORT_DIR *(rw,sync,no_root_squash)" >> /etc/exports
+
+  for dataset in $(ls $NFS_DATASETS_EXPORT_DIR)
+  do
+    echo "$NFS_DATASETS_EXPORT_DIR/$dataset *(rw,sync,no_root_squash)" >> /etc/exports
+  done
 
   # Start the NFS service.
   /etc/init.d/nfs-kernel-server start
