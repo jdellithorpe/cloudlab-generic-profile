@@ -6,8 +6,11 @@ cluster is instantiated you can check /var/tmp/startup-1.txt for log output from
 the startup scripts.
 
 Instructions:
-Input parameters and instantiate. Bada-bing-bada-boom!
+Input parameters, instantiate, and wait for setup to complete before logging in
+(otherwise setting up shared home directories on NFS might fail).
+Bada-bing-bada-boom!
 """
+
 import re
 
 import geni.aggregate.cloudlab as cloudlab
