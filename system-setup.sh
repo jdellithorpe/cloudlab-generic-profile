@@ -118,12 +118,16 @@ then
   echo -e "\n===== MOVING USERS HOME DIRECTORY TO NFS HOME ====="
   for user in $(ls /users/)
   do
+    # Ensure that no processes by that user are running.
+    pkill -u $user
     usermod --move-home --home $SHARED_HOME_DIR/$user $user
   done
 else
   echo -e "\n===== SETTING USERS HOME DIRECTORY TO NFS HOME ====="
   for user in $(ls /users/)
   do
+    # Ensure that no processes by that user are running.
+    pkill -u $user
     usermod --home $SHARED_HOME_DIR/$user $user
   done
 fi
