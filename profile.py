@@ -14,6 +14,7 @@ import re
 
 import geni.aggregate.cloudlab as cloudlab
 import geni.portal as portal
+import geni.rspec.emulab as emulab
 import geni.rspec.pg as pg
 import geni.urn as urn
 
@@ -117,7 +118,7 @@ for host in hostnames:
     node.disk_image = urn.Image(cloudlab.Utah, "emulab-ops:%s" % params.image)
 
     # Install a private/public key on this node
-    #node.installRootKeys(True, True)
+    node.installRootKeys(True, True)
 
     node.addService(pg.Execute(shell="sh", 
         command="sudo /local/repository/system-setup.sh %s %s %s %s" % \
