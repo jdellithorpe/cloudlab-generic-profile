@@ -83,7 +83,8 @@ then
   done
 
   # Start the NFS service.
-  /etc/init.d/nfs-kernel-server start
+  exportfs -a
+  systemctl restart nfs-kernel-server
 
   # Give it a second to start-up
   sleep 5
