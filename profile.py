@@ -25,7 +25,8 @@ pc = portal.Context()
 # The second field of every tupule is what is displayed on the cloudlab
 # dashboard.
 images = [ ("UBUNTU14-64-STD", "Ubuntu 14.04"),
-           ("UBUNTU16-64-STD", "Ubuntu 16.04") ]
+           ("UBUNTU16-64-STD", "Ubuntu 16.04"),
+           ("UBUNTU18-64-STD", "Ubuntu 18.04")]
 
 # The possible set of node-types this cluster can be configured with. Currently 
 # only m510 machines are supported.
