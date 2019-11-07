@@ -32,7 +32,8 @@ images = [ ("UBUNTU14-64-STD", "Ubuntu 14.04"),
 # only m510 machines are supported.
 hardware_types = [ ("m510", "m510 (CloudLab Utah, 8-Core Intel Xeon D-1548)"),
                    ("m400", "m400 (CloudLab Utah, 8-Core 64-bit ARMv8)"),
-                   ("d430", "d430 (Emulab, 8-Core Intel Xeon E5-2630v3)") ]
+                   ("d430", "d430 (Emulab, 8-Core Intel Xeon E5-2630v3)"),
+                   ("c6420", "c6420 (CloudLab Clemson, 32-Core Intel Skylake)") ]
 
 pc.defineParameter("image", "Disk Image",
         portal.ParameterType.IMAGE, images[1], images,
