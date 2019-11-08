@@ -53,7 +53,7 @@ EOM
 # NFS specific setup here. NFS exports NFS_SHARED_HOME_EXPORT_DIR (used as
 # a shared home directory for all users), and also NFS_DATASETS_EXPORT_DIR
 # (mount point for CloudLab datasets to which cluster nodes need shared access). 
-if [ $(hostname --short) == "nfs" ]
+if [ $(hostname --short) == "nfs" ] && [ ! -f /local/setup-nfs-done ]
 then
   echo -e "\n===== SETTING UP NFS EXPORTS ON NFS ====="
   # Make the file system rwx by all.
